@@ -30,6 +30,7 @@ ul {
 <div class="container">
 <div class="row">
 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-7 col-centered">
+<h2 id="test"></h2>
 <ul class="list-group">
 <li class="list-group-item btn btn-default"><i class="fa fa-twitch" aria-hidden="true"></i> Twitch<li>
 </ul>
@@ -38,12 +39,8 @@ ul {
 </div>
 </body>
 <script>
-$.ajax({
-    url: "https://wind-bow.glitch.me/twitch-api/users/freecodecamp",
-    type: "GET",
-    dataType: "jsonp"
-}).done(function (data) {
-    $(ul).html(`<img id = "Weather-Icon" src="${data.logo}"></img>` + data.bio);
-});
+$.getJSON("https://wind-bow.gomix.me/twitch-api/users/freecodecamp", function (twitchData) {
+            $("#test").html(twitchData.bio + "test");
+        });
 </script>
 </html>
