@@ -39,8 +39,12 @@ ul {
 </div>
 </body>
 <script>
-$.getJSON("https://wind-bow.gomix.me/twitch-api/users/freecodecamp", function (twitchData) {
-            $("#test").html(twitchData.bio + "test");
-        });
+$.ajax({
+    url: "https://wind-bow.glitch.me/twitch-api/users/freecodecamp",
+    type: "GET",
+    dataType: "jsonp"
+}).done(function (data) {
+    $("#test").html(data.bio + "test");
+});
 </script>
 </html>
