@@ -44,7 +44,7 @@ $.ajax({
     type: "GET",
     dataType: "jsonp"
     }).done(function (data) {
-    $("#main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal;" ><img id = "logo" class="img-responsive" style="background-size: 100%" src="${data.logo}"></img> + ${data.bio}</li>`);
+    $("#main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal;" ><img id = "logo" class="img-responsive" style="float: left" src="${data.logo}"></img> + ${data.bio}</li>`);
     });
 </script>
 </html>
