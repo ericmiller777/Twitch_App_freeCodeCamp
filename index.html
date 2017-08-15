@@ -40,7 +40,7 @@ ul {
 </body>
 <script>
 $.getJSON("https://wind-bow.gomix.me/twitch-api/users/freecodecamp", function (twitchData) {
-            $("#test").append(twitchData.bio + "test");
+            $("#test").html(twitchData.bio + "test");
         });
 </script>
 </html>
