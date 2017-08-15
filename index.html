@@ -39,12 +39,12 @@ ul {
 </div>
 </body>
 <script>
-ajax({
+$.ajax({
     url: "https://wind-bow.glitch.me/twitch-api/users/freecodecamp",
     type: "GET",
     dataType: "jsonp"
     }).done(function (data) {
-    $("#test").append(data.bio + "test");
+    $("ul").html(`<li><img id = "logo" src="${data.logo}"></img> + ${data.bio}</li>`);
     });
 </script>
 </html>
