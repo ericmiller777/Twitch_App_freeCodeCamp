@@ -30,8 +30,9 @@ ul {
 <div class="container">
 <div class="row">
 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-7 col-centered">
+<h2 id="test"></h2>
 <ul class="list-group">
-<li class="list-group-item btn btn-default test"><i class="fa fa-twitch" aria-hidden="true"></i> Twitch<li>
+<li class="list-group-item btn btn-default"><i class="fa fa-twitch" aria-hidden="true"></i> Twitch<li>
 </ul>
 </div>
 </div>
@@ -39,7 +40,7 @@ ul {
 </body>
 <script>
 $.getJSON("https://wind-bow.gomix.me/twitch-api/users/freecodecamp", function (twitchData) {
-            $(".test").append(twitchData.bio + "test");
+            $("#test").append(twitchData.bio + "test");
         });
 </script>
 </html>
