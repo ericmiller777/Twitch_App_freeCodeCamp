@@ -41,6 +41,7 @@ ul {
 <script>
 $.getJSON("https://wind-bow.gomix.me/twitch-api/users/freecodecamp", function (twitchData) {
             $("#test").html(twitchData.bio + "test");
+            console.log(twitchData.bio);
         });
 </script>
 </html>
