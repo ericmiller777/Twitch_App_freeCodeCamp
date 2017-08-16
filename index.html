@@ -47,12 +47,12 @@ $.ajax({
     dataType: "jsonp"
     }).done(function (users) {
         $.ajax({
-    url: "https://wind-bow.glitch.me/twitch-api/channels/freecodecamp",
+    url: "https://wind-bow.glitch.me/twitch-api/channels/" + usersArray[i],
     type: "GET",
     dataType: "jsonp"
     }).done(function (channels) {
         $.ajax({
-    url: "https://wind-bow.glitch.me/twitch-api/streams/freecodecamp",
+    url: "https://wind-bow.glitch.me/twitch-api/streams/" + usersArray[i],
     type: "GET",
     dataType: "jsonp"
     }).done(function (streams) {
