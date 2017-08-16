@@ -52,7 +52,7 @@ $.ajax({
     dataType: "jsonp"
     }).done(function (channels) {
         $.ajax({
-    url: "https://wind-bow.glitch.me/twitch-api/streams/ESL_SC2",
+    url: "https://wind-bow.glitch.me/twitch-api/streams/" + usersArray[i],
     type: "GET",
     dataType: "jsonp"
     }).done(function (streams) {
