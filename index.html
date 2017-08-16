@@ -56,7 +56,7 @@ $.ajax({
     type: "GET",
     dataType: "jsonp"
     }).done(function (streams) {
-    if (streams.stream = null){
+    if (streams.stream == null){
     $("#main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal; overflow: hidden;" ><div class="row"><div class="col-xs-4 col-sm-4 col-md-2 col-lg-2"><img id = "logo" class="img-responsive" src="${users.logo}"></img></div><div class="col-xs-8 col-sm-8 col-md-10 col-lg-10"><span style="float: left"><span style="font-size: 25px;"><b>${users.display_name}</b></span><br>--offline</span></div></div><span>${users.bio}</span></li>`);
     }else{
     $("#main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal; overflow: hidden;" ><div class="row"><div class="col-xs-4 col-sm-4 col-md-2 col-lg-2"><img id = "logo" class="img-responsive" src="${users.logo}"></img></div><div class="col-xs-8 col-sm-8 col-md-10 col-lg-10"><span style="float: left"><span style="font-size: 25px;"><b>${users.display_name}</b></span><br>${streams.stream.channel.status}</span></div></div><span>${users.bio}</span></li>`);
