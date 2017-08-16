@@ -48,7 +48,7 @@ $("#main-group").append(`<li class="list-group-item btn btn-default" style="whit
 for (var i = 0; i < usersArray.length; i++ ){
 $.getJSON("https://wind-bow.glitch.me/twitch-api/streams/" + usersArray[i], function (streams) {
 if (streams.stream != null){
-$("#streamInfo" + i).append(streams.stream.channel.status);
+$("#streamInfo" + i).html(streams.stream.channel.status);
 }            
 });
 }
