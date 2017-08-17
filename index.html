@@ -51,8 +51,8 @@ ul {
     //});
     
     for (var i = 0; i < usersArray.length; i++){
-    $.getJSON("https://wind-bow.glitch.me/twitch-api/users/" + usersArray, function (users) {
-    $.getJSON("https://wind-bow.glitch.me/twitch-api/streams/" + usersArray, function (streams) {
+    $.getJSON("https://wind-bow.glitch.me/twitch-api/users/" + usersArray[i], function (users) {
+    $.getJSON("https://wind-bow.glitch.me/twitch-api/streams/" + usersArray[i], function (streams) {
     if (streams.stream == null){
         $("#main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal; overflow: hidden;" ><div class="row"><div class="col-xs-4 col-sm-4 col-md-2 col-lg-2"><img id = "logo" class="img-responsive" src="${users.logo}"></img></div><div class="col-xs-8 col-sm-8 col-md-10 col-lg-10"><span id="streamInfo" style="float: left"><span style="font-size: 25px;"><b>${users.display_name}</b></span><br>--offline</span></div></div><span>${users.bio}</span></li>`);
     }else{
