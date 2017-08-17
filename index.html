@@ -50,7 +50,7 @@ ul {
     //});
     //});
     
-    for (var i = 0; i < usersArray.length; i++){
+    for (let i = 0; i < usersArray.length; i++){
     $.getJSON("https://wind-bow.glitch.me/twitch-api/users/" + usersArray[i], function (users) {
     $.getJSON("https://wind-bow.glitch.me/twitch-api/streams/" + usersArray[i], function (streams) {
     console.log(streams.stream)
