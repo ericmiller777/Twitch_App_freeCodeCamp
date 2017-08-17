@@ -51,7 +51,7 @@ var usersArray = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "habathc
 //});
 //}
 
-usersArray.forEach( function(){
+usersArray.forEach( function(usersarray){
 $.getJSON("https://wind-bow.glitch.me/twitch-api/users/" + usersArray, function (users) {
 $.getJSON("https://wind-bow.glitch.me/twitch-api/streams/" + usersArray, function (streams) {
 if (streams.stream == null){
