@@ -31,9 +31,8 @@ ul {
 <div class="container">
 <div class="row">
 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-7 col-centered">
-<h2 id="test"></h2>
 <ul id="main-group" class="list-group">
-<li class="list-group-item btn btn-default"><a href="https://www.twitch.tv" style=" color: black; "><i class="fa fa-twitch" aria-hidden="true"></i> Twitch</a><li>
+<li id="twitchButton" class="list-group-item btn btn-default"><i class="fa fa-twitch" aria-hidden="true"></i>Twitch<li>
 </ul>
 </div>
 </div>
@@ -69,6 +68,10 @@ ul {
     });            
     });
     }
+    $("#twitchButton").click(function() {
+    window.location.href = "https://twitch.tv";
+    return false;
+});
         //$("#     main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal; overflow: hidden;" ><div class="row"><div class="col-xs-4 col-sm-4 col-md-2 col-lg-2"><img id = "logo" class="img-responsive" src="${data.logo}"></img></div><div class="col-xs-8 col-sm-8 col-md-10 col-lg-10"><span style="float: left"><span style="font-size: 25px;"><b>${data.display_name}</b></span><br>--offline</span></div></div><span>${data.bio}</span></li>`);
     </script>
 </body>
