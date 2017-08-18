@@ -1,77 +1,82 @@
 <html>
+
 <head>
-<!--   Hello freeCodeCamp Checker :)            -->
+    <!--   Hello freeCodeCamp Checker :)               -->
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
-            crossorigin="anonymous">
-    
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-    
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <style>
-.col-centered {
+    .col-centered {
         float: none;
         margin: 0 auto;
     }
-ul {
-    list-style-type: none;
-}
+
+    ul {
+        list-style-type: none;
+    }
 </style>
+
 <body>
-<div class="container">
-<div class="row">
-<div class="col-xs-12 col-sm-10 col-md-8 col-lg-7 col-centered">
-<ul id="main-group" class="list-group">
-<li id="twitchButton" class="list-group-item btn btn-default"><i class="fa fa-twitch" aria-hidden="true"></i>Twitch<li>
-</ul>
-</div>
-</div>
-</div>
-<script>
-    var usersArray = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "habathcx", "clintstevens", "noobs2ninjas", "vgbootcamp"];
-    //usersArray.forEach( function(usersArray){
-    //$.getJSON("https://wind-bow.glitch.me/twitch-api/users/" + usersArray[i], function (users) {
-    //$("#main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal; overflow: hidden;" ><div class="row"><div class="col-xs-4 col-sm-4 col-md-2 col-lg-2"><img id = "logo" class="img-responsive" src="${users.logo}"></img></div><div class="col-xs-8 col-sm-8 col-md-10 col-lg-10"><span id="streamInfo" style="float: left"><span style="font-size: 25px;"><b>${users.display_name}</b></span><br>--offline</span></div></div><span>${users.bio}</span></li>`);            
-    //});
-    //$.getJSON("https://wind-bow.glitch.me/twitch-api/streams/" + usersArray[B], function (streams) {
-    //if (streams.stream != null){
-    //$("#streamInfo").html(streams.stream.channel.status);
-    //}            
-    //});
-    //});
-    
-    for (let i = 0; i < usersArray.length; i++){
-    $.getJSON("https://wind-bow.glitch.me/twitch-api/users/" + usersArray[i], function (users) {
-    $.getJSON("https://wind-bow.glitch.me/twitch-api/channels/" + usersArray[i], function (channels) {
-    $.getJSON("https://wind-bow.glitch.me/twitch-api/streams/" + usersArray[i], function (streams) {
-    console.log(streams.stream)
-    if (streams.stream == null && users.bio != null){
-        $("#main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal; overflow: hidden;" ><a href=${channels.url} style="color: black;><div class="row"><div class="col-xs-4 col-sm-4 col-md-2 col-lg-2"><img id = "logo" class="img-responsive" src="${users.logo}"></img></div><div class="col-xs-8 col-sm-8 col-md-10 col-lg-10"><span id="streamInfo" style="float: left"><span style="font-size: 25px;"><b>${users.display_name}</b></span><br>--offline</span></div></div><span id = "bio">${users.bio}</span></a></li>`);
-    }else if (streams.stream == null && users.bio == null){
-        $("#main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal; overflow: hidden;" ><a href=${channels.url} style="color: black;><div class="row"><div class="col-xs-4 col-sm-4 col-md-2 col-lg-2"><img id = "logo" class="img-responsive" src="${users.logo}"></img></div><div class="col-xs-8 col-sm-8 col-md-10 col-lg-10"><span id="streamInfo" style="float: left"><span style="font-size: 25px;"><b>${users.display_name}</b></span><br>--offline</span></div></div></li>`)
-    }else if (streams.stream != null && users.bio != null){
-        $("#main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal; overflow: hidden; background-color: rgb( 0,191,255 )" ><a href=${channels.url} style="color: black;><div class="row"><div class="col-xs-4 col-sm-4 col-md-2 col-lg-2"><img id = "logo" class="img-responsive" src="${users.logo}"></img></div><div class="col-xs-8 col-sm-8 col-md-10 col-lg-10"><span id="streamInfo" style="float: left"><span style="font-size: 25px;"><b>${users.display_name}</b></span><br>${streams.stream.channel.game}<br>${streams.stream.channel.status}</span></div></div><span id = "bio"><br>${users.bio}</span></li>`);
-    }else if(streams.stream != null && users.bio == null){
-        $("#main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal; overflow: hidden; background-color: rgb( 0,191,255 )" ><a href=${channels.url} style="color: black;><div class="row"><div class="col-xs-4 col-sm-4 col-md-2 col-lg-2"><img id = "logo" class="img-responsive" src="${users.logo}"></img></div><div class="col-xs-8 col-sm-8 col-md-10 col-lg-10"><span id="streamInfo" style="float: left"><span style="font-size: 25px;"><b>${users.display_name}</b></span><br>${streams.stream.channel.game}<br>${streams.stream.channel.status}</span></div></div></li>`);
-    }
-    });
-    });            
-    });
-    }
-    $("#twitchButton").click(function() {
-    window.location.href = "https://twitch.tv";
-    return false;
-});
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-8 col-lg-7 col-centered">
+                <ul id="main-group" class="list-group">
+                    <li id="twitchButton" class="list-group-item btn btn-default"><i class="fa fa-twitch" aria-hidden="true"></i>Twitch
+                        <li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        var usersArray = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "habathcx", "clintstevens", "noobs2ninjas", "vgbootcamp"];
+        //usersArray.forEach( function(usersArray){
+        //$.getJSON("https://wind-bow.glitch.me/twitch-api/users/" + usersArray[i], function (users) {
+        //$("#main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal; overflow: hidden;" ><div class="row"><div class="col-xs-4 col-sm-4 col-md-2 col-lg-2"><img id = "logo" class="img-responsive" src="${users.logo}"></img></div><div class="col-xs-8 col-sm-8 col-md-10 col-lg-10"><span id="streamInfo" style="float: left"><span style="font-size: 25px;"><b>${users.display_name}</b></span><br>--offline</span></div></div><span>${users.bio}</span></li>`);            
+        //});
+        //$.getJSON("https://wind-bow.glitch.me/twitch-api/streams/" + usersArray[B], function (streams) {
+        //if (streams.stream != null){
+        //$("#streamInfo").html(streams.stream.channel.status);
+        //}            
+        //});
+        //});
+
+        for (let i = 0; i < usersArray.length; i++) {
+            $.getJSON("https://wind-bow.glitch.me/twitch-api/users/" + usersArray[i], function (users) {
+                $.getJSON("https://wind-bow.glitch.me/twitch-api/channels/" + usersArray[i], function (channels) {
+                    $.getJSON("https://wind-bow.glitch.me/twitch-api/streams/" + usersArray[i], function (streams) {
+                        console.log(streams.stream)
+                        if (streams.stream == null && users.bio != null) {
+                            $("#main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal; overflow: hidden;" ><a href=${channels.url} style="color: black;><div class="row"><div class="col-xs-4 col-sm-4 col-md-2 col-lg-2"><img id = "logo" class="img-responsive" src="${users.logo}"></img></div><div class="col-xs-8 col-sm-8 col-md-10 col-lg-10"><span id="streamInfo" style="float: left"><span style="font-size: 25px;"><b>${users.display_name}</b></span><br>--offline</span></div></div><span id = "bio">${users.bio}</span></a></li>`);
+                        } else if (streams.stream == null && users.bio == null) {
+                            $("#main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal; overflow: hidden;" ><a href=${channels.url} style="color: black;><div class="row"><div class="col-xs-4 col-sm-4 col-md-2 col-lg-2"><img id = "logo" class="img-responsive" src="${users.logo}"></img></div><div class="col-xs-8 col-sm-8 col-md-10 col-lg-10"><span id="streamInfo" style="float: left"><span style="font-size: 25px;"><b>${users.display_name}</b></span><br>--offline</span></div></div></li>`)
+                        } else if (streams.stream != null && users.bio != null) {
+                            $("#main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal; overflow: hidden; background-color: rgb( 0,191,255 )" ><a href=${channels.url} style="color: black;><div class="row"><div class="col-xs-4 col-sm-4 col-md-2 col-lg-2"><img id = "logo" class="img-responsive" src="${users.logo}"></img></div><div class="col-xs-8 col-sm-8 col-md-10 col-lg-10"><span id="streamInfo" style="float: left"><span style="font-size: 25px;"><b>${users.display_name}</b></span><br>${streams.stream.channel.game}<br>${streams.stream.channel.status}</span></div></div><span id = "bio"><br>${users.bio}</span></li>`);
+                        } else if (streams.stream != null && users.bio == null) {
+                            $("#main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal; overflow: hidden; background-color: rgb( 0,191,255 )" ><a href=${channels.url} style="color: black;><div class="row"><div class="col-xs-4 col-sm-4 col-md-2 col-lg-2"><img id = "logo" class="img-responsive" src="${users.logo}"></img></div><div class="col-xs-8 col-sm-8 col-md-10 col-lg-10"><span id="streamInfo" style="float: left"><span style="font-size: 25px;"><b>${users.display_name}</b></span><br>${streams.stream.channel.game}<br>${streams.stream.channel.status}</span></div></div></li>`);
+                        }
+                    });
+                });
+            });
+        }
+        $("#twitchButton").click(function () {
+            window.location.href = "https://twitch.tv";
+            return false;
+        });
         //$("#     main-group").append(`<li class="list-group-item btn btn-default" style="white-space: normal; overflow: hidden;" ><div class="row"><div class="col-xs-4 col-sm-4 col-md-2 col-lg-2"><img id = "logo" class="img-responsive" src="${data.logo}"></img></div><div class="col-xs-8 col-sm-8 col-md-10 col-lg-10"><span style="float: left"><span style="font-size: 25px;"><b>${data.display_name}</b></span><br>--offline</span></div></div><span>${data.bio}</span></li>`);
     </script>
 </body>
+
 </html>
